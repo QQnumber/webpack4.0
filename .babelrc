@@ -1,0 +1,27 @@
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "usage"
+        }
+      ],
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      [
+        "@babel/transform-runtime",
+        {
+            "helpers": false
+        }
+      ],
+      // 兼容装饰器写法
+      "@babel/plugin-proposal-object-rest-spread",    // 解析对象的扩展运算符（ES2018）
+      "@babel/plugin-proposal-export-default-from",   // 解析额外的export语法:export v from "xx/xx"
+      ["@babel/plugin-proposal-decorators", { "legacy": true }],  
+      // 可以直接为类添加属性，无需使用Object.defineProperty 定义类属性
+      "@babel/plugin-proposal-export-namespace-from", // 解析额外的export语法:export v as vv from "xx/xx";
+      ["@babel/plugin-proposal-class-properties", { "loose": true }],
+      "@babel/plugin-syntax-dynamic-import"   
+  ]
+}
